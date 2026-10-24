@@ -3,9 +3,23 @@ import java.util.Scanner;
 void main(){
 
     supermarket mkt =  new supermarket();
+    CadastroCaixa cad = new CadastroCaixa();
     var EntradaUsuario = new Scanner(System.in);
 
     System.out.println("==== Supermercado ====");
+    System.out.println("Insira suas informações para iniciar a operação");
+    do {
+        System.out.println("Insira o seu nome");
+        cad.nomeFuncionario = EntradaUsuario.next();
+
+        System.out.println("Insira o coidigo de acesso");
+        cad.codigoAcesso = EntradaUsuario.next();
+
+
+    } while(!cad.codigoAcesso.equals( "0X10-00"));
+
+    System.out.println("Aceito Inicie a sua operação");
+
     System.out.println("Insira qualquer palavra para iniciar ou 'fechar' pra encerrar a compra");
     mkt.entrar = EntradaUsuario.next();
 
