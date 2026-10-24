@@ -1,23 +1,49 @@
+
 import java.util.Scanner;
 void main(){
+
+    supermarket mkt =  new supermarket();
     var EntradaUsuario = new Scanner(System.in);
 
-    System.out.println("Olá diga o seu nome");
-    var Codigo_usuario = EntradaUsuario.next();
+    System.out.println("==== Supermercado ====");
+    System.out.println("Insira qualquer palavra para iniciar ou 'fechar' pra encerrar a compra");
+    mkt.entrar = EntradaUsuario.next();
 
+    //var palavraChave = "fechar";
 
-    System.out.println("Digite o seu saldo bancario desejado : ");
-    var Saldo_usuario = EntradaUsuario.nextLong();
+    while(!mkt.entrar.equals("fechar")){
+        System.out.println("Insira um produto para contabilizar a compra ou digite fechar para prosseguir para o pagamento");
+        mkt.entrar = EntradaUsuario.next();
 
-    if(Saldo_usuario >= 100 && Saldo_usuario <= 999){
-        System.out.println("Olá:"+ Codigo_usuario + "Seu Saldo é medio: " + Saldo_usuario);
+        mkt.qtdProduto++;
+        System.out.println("produto debitado: " + mkt.entrar);
+        System.out.println("qtd produto: " + mkt.qtdProduto);
 
-    } else if (Saldo_usuario >= 1000 && Saldo_usuario < 2000){
-        System.out.println("Olá:"+ " " + Codigo_usuario + " " + "Seu saldo é baixo: " + Saldo_usuario);
-    } else if (Saldo_usuario >= 2100) {
-        System.out.println("Olá: "+ Codigo_usuario + "Seu saldo é alto" + Saldo_usuario);
-    } else{
-        System.out.println("Nenhum valor foi informado");
+    }
+    System.out.println("Como deseja efetuar esse pagamento");
+    System.out.println("1) cartão credito");
+    System.out.println("2) dinheiro");
+    System.out.println("3) Pix");
+
+    mkt.pagamento =  EntradaUsuario.nextInt();
+
+    switch (mkt.pagamento){
+        case 1:{
+            System.out.println("Pagar no cartão de credito");
+            break;
+        }
+        case 2:{
+            System.out.println("Pagar no dinheiro");
+            break;
+        }
+        case 3:{
+            System.out.println("Pagar no pix");
+            break;
+        }
+        default:{
+            System.out.println("Informação invalida tente novamente");
+            break;
+        }
     }
 
 }
